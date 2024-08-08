@@ -19,6 +19,8 @@ public class LoginController {
     @FXML
     private PasswordField txtPass;
 
+    private LoginModel model = new LoginModel();
+
 
     @FXML
     void initialize(){
@@ -38,19 +40,26 @@ public class LoginController {
 
     @FXML
     void onLoginClick(ActionEvent event) {
+        txtError.setText("");
 
-        if(txtEmail.getText().equals("admin") && txtPass.getText().equals("pass")){
-            System.out.println("CONGRATS");
-        }
-        else{
-            txtError.setText("Invalid username or password");
-        }
+//        if(txtEmail.getText().equals("admin") && txtPass.getText().equals("pass")){
+//            System.out.println("CONGRATS");
+//        }
+//        else{
+//            txtError.setText("Invalid username or password");
+//        }
     }
 
     @FXML
     void onRegisterClick(ActionEvent event) {
 
-        System.out.println("To be implemented");
+        txtError.setText("");
+        try{
+            model.processRegisterRequest(txtEmail.getText(), txtPass.getText());
+        }
+        catch (Exception e){
+            txtError.setText(e.getMessage());
+        }
 
     }
 
