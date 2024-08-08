@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1008summer2024thursdaygui.LoginController">
    <children>
       <GridPane layoutX="50.0" layoutY="50.0" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #fff;">
@@ -36,7 +35,7 @@
                   <Insets left="30.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="txtEmail" alignment="CENTER" promptText="Enter Emal" style="-fx-border-color: black;" GridPane.rowIndex="2">
+            <TextField fx:id="txtEmail" alignment="CENTER" onKeyReleased="#onKeyTyped" promptText="Enter Emal" style="-fx-border-color: black;" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -48,12 +47,12 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="60.0" prefWidth="250.0" text="Register">
+                  <Button mnemonicParsing="false" onAction="#onRegisterClick" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="60.0" prefWidth="250.0" text="Register">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onLoginClick" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #3d5385;" text="Login" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onLoginClick" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #3d5385;" text="Login" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

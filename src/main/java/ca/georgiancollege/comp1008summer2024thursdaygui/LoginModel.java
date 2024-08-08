@@ -41,7 +41,25 @@ public class LoginModel {
             throw new IllegalArgumentException("Username is too  short");
         this.username = username;
     }
+    public boolean processLoginRequest(String username, String password)
+            throws Exception {
 
+        //get a list of all the file names
+        String[] fileNames = rootPath.toFile().list();
+        //iterate throw them and determine if username+.txt is found in the list of string file names
+        for(String file : fileNames){
+            if(file.equals(username + ".txt")){
+                //if yes, open that file and determine if password == file content
+                if(password.equals(Files.readString(rootPath.resolve(username+".txt")))){
+                    return true;
+                }
+                break;
+            }
+        }
+        //if no, throw error: sent to the view
+        throw new IllegalArgumentException("Incorrect username and/or password");
+
+    }
     public void processRegisterRequest(String username, String password)
     throws Exception{
         setUsername(username);
